@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlunosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="aluno">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="nota">
+    <Key>
+      <PropertyRef Name="id_aluno" />
+    </Key>
+    <Property Name="id_aluno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="matematica" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="portugues" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="historia" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="geografica" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="ingles" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="biologia" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="filosofia" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="fisica" Type="Decimal" Precision="2" Scale="2" />
+    <Property Name="quimica" Type="Decimal" Precision="2" Scale="2" />
+  </EntityType>
+  <EntityContainer Name="AlunosDataBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="alunos" EntityType="Self.aluno" />
+    <EntitySet Name="notas" EntityType="Self.nota" />
+  </EntityContainer>
+</Schema>

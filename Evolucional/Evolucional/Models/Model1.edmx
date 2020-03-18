@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AlunosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="alunos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notas">
+          <Key>
+            <PropertyRef Name="id_aluno" />
+          </Key>
+          <Property Name="id_aluno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matematica" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="portugues" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="historia" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="geografica" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="ingles" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="biologia" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="filosofia" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="fisica" Type="decimal" Precision="2" Scale="2" />
+          <Property Name="quimica" Type="decimal" Precision="2" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="AlunosModelStoreContainer">
+          <EntitySet Name="alunos" EntityType="Self.alunos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notas" EntityType="Self.notas" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlunosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="aluno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nota">
+          <Key>
+            <PropertyRef Name="id_aluno" />
+          </Key>
+          <Property Name="id_aluno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matematica" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="portugues" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="historia" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="geografica" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="ingles" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="biologia" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="filosofia" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="fisica" Type="Decimal" Precision="2" Scale="2" />
+          <Property Name="quimica" Type="Decimal" Precision="2" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="AlunosDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="alunos" EntityType="Self.aluno" />
+          <EntitySet Name="notas" EntityType="Self.nota" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlunosModelStoreContainer" CdmEntityContainer="AlunosDataBaseEntities">
+          <EntitySetMapping Name="alunos">
+            <EntityTypeMapping TypeName="AlunosModel.aluno">
+              <MappingFragment StoreEntitySet="alunos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notas">
+            <EntityTypeMapping TypeName="AlunosModel.nota">
+              <MappingFragment StoreEntitySet="notas">
+                <ScalarProperty Name="id_aluno" ColumnName="id_aluno" />
+                <ScalarProperty Name="matematica" ColumnName="matematica" />
+                <ScalarProperty Name="portugues" ColumnName="portugues" />
+                <ScalarProperty Name="historia" ColumnName="historia" />
+                <ScalarProperty Name="geografica" ColumnName="geografica" />
+                <ScalarProperty Name="ingles" ColumnName="ingles" />
+                <ScalarProperty Name="biologia" ColumnName="biologia" />
+                <ScalarProperty Name="filosofia" ColumnName="filosofia" />
+                <ScalarProperty Name="fisica" ColumnName="fisica" />
+                <ScalarProperty Name="quimica" ColumnName="quimica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

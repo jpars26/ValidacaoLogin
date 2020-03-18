@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+    
+    if (Session ["userID"] == null) {
+        Response.Redirect("~/Login/Index");
+    }
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+
+        <h3>Username: @Session["userName"].ToString()</h3>
+
+        @using (Html.BeginForm("AddAluno", "Home", FormMethod.Post)) {
+            
+            <button type="submit" class="btn btn-primary btn-novo">Botao 1</button>
+        }
+        <br />
+        <br />
+
+        <input type="submit" name="name" value="Botao 2" />
+
+        <br />
+        <br />
+
+        <a href="@Url.Action("LogOut", "Login")">LogOut</a>
+    </div>
+</body>
+</html>

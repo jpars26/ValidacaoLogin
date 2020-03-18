@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AlunosModelStoreContainer" CdmEntityContainer="AlunosDataBaseEntities">
+    <EntitySetMapping Name="alunos">
+      <EntityTypeMapping TypeName="AlunosModel.aluno">
+        <MappingFragment StoreEntitySet="alunos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notas">
+      <EntityTypeMapping TypeName="AlunosModel.nota">
+        <MappingFragment StoreEntitySet="notas">
+          <ScalarProperty Name="id_aluno" ColumnName="id_aluno" />
+          <ScalarProperty Name="matematica" ColumnName="matematica" />
+          <ScalarProperty Name="portugues" ColumnName="portugues" />
+          <ScalarProperty Name="historia" ColumnName="historia" />
+          <ScalarProperty Name="geografica" ColumnName="geografica" />
+          <ScalarProperty Name="ingles" ColumnName="ingles" />
+          <ScalarProperty Name="biologia" ColumnName="biologia" />
+          <ScalarProperty Name="filosofia" ColumnName="filosofia" />
+          <ScalarProperty Name="fisica" ColumnName="fisica" />
+          <ScalarProperty Name="quimica" ColumnName="quimica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
